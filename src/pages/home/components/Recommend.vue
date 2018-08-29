@@ -2,7 +2,7 @@
   <div>
     <div class="title">热销推荐</div>
     <ul>
-      <li class="item border-bottom" v-for="item of recommendList" :key="item.id">
+      <li class="item border-bottom" v-for="item of list" :key="item.id">
         <img :src="item.imgUrl" alt="" class="item-img">
         <div class="item-info">
           <p class="item-title">{{item.title}}</p>
@@ -16,25 +16,8 @@
 <script>
 export default {
   name: 'HomeRecommend',
-  data () {
-    return {
-      recommendList: [{
-        id: '0001',
-        imgUrl: 'https://avatar.zbjimg.com/009/93/65/200x200_avatar_46.jpg!big',
-        title: '青海湖鸟岛风景',
-        desc: '啥符号违法和卢卡斯活动费敬爱的搜我解放案件的发生的副驾驶卡号的'
-      }, {
-        id: '0002',
-        imgUrl: 'https://avatar.zbjimg.com/009/93/65/200x200_avatar_46.jpg!big',
-        title: '青海湖鸟岛风景',
-        desc: '啥符号违法和卢卡斯活动费敬爱的搜我解放案件的发生的副驾驶卡号的'
-      }, {
-        id: '0003',
-        imgUrl: 'https://avatar.zbjimg.com/009/93/65/200x200_avatar_46.jpg!big',
-        title: '青海湖鸟岛风景',
-        desc: '啥符号违法和卢卡斯活动费敬爱的搜我解放案件的发生的副驾驶卡号的'
-      }]
-    }
+  props: {
+    list: Array
   }
 }
 </script>

@@ -1,6 +1,6 @@
 <template>
   <div class="icons">
-    <swiper>
+    <swiper :options="swiperOption">
       <swiper-slide v-for="(page, index) of pages" :key="index">
         <div class="icon" v-for="item of page" :key="item.id">
           <div class="icon-img">
@@ -15,51 +15,20 @@
 <script>
 export default {
   name: 'HomeIcons',
+  props: {
+    list: Array
+  },
   data () {
     return {
-      iconList: [{
-        id: '0001',
-        imgUrl: 'https://tianpeng.zbjimg.com/tianpeng/task/%E7%9F%A5%E8%AF%86%E4%BA%A7%E6%9D%83.png/origine/80b3f336-2d2b-4dda-aed0-c7905d003aab',
-        desc: '景点门票'
-      }, {
-        id: '0002',
-        imgUrl: 'https://tianpeng.zbjimg.com/tianpeng/task/%E7%9F%A5%E8%AF%86%E4%BA%A7%E6%9D%83.png/origine/80b3f336-2d2b-4dda-aed0-c7905d003aab',
-        desc: '滑雪季'
-      }, {
-        id: '0003',
-        imgUrl: 'https://tianpeng.zbjimg.com/tianpeng/task/%E7%9F%A5%E8%AF%86%E4%BA%A7%E6%9D%83.png/origine/80b3f336-2d2b-4dda-aed0-c7905d003aab',
-        desc: '滑雪季'
-      }, {
-        id: '0004',
-        imgUrl: 'https://tianpeng.zbjimg.com/tianpeng/task/%E7%9F%A5%E8%AF%86%E4%BA%A7%E6%9D%83.png/origine/80b3f336-2d2b-4dda-aed0-c7905d003aab',
-        desc: '滑雪季'
-      }, {
-        id: '0005',
-        imgUrl: 'https://tianpeng.zbjimg.com/tianpeng/task/%E7%9F%A5%E8%AF%86%E4%BA%A7%E6%9D%83.png/origine/80b3f336-2d2b-4dda-aed0-c7905d003aab',
-        desc: '滑雪季'
-      }, {
-        id: '0006',
-        imgUrl: 'https://tianpeng.zbjimg.com/tianpeng/task/%E7%9F%A5%E8%AF%86%E4%BA%A7%E6%9D%83.png/origine/80b3f336-2d2b-4dda-aed0-c7905d003aab',
-        desc: '滑雪季'
-      }, {
-        id: '0007',
-        imgUrl: 'https://tianpeng.zbjimg.com/tianpeng/task/%E7%9F%A5%E8%AF%86%E4%BA%A7%E6%9D%83.png/origine/80b3f336-2d2b-4dda-aed0-c7905d003aab',
-        desc: '滑雪季'
-      }, {
-        id: '0008',
-        imgUrl: 'https://tianpeng.zbjimg.com/tianpeng/task/%E7%9F%A5%E8%AF%86%E4%BA%A7%E6%9D%83.png/origine/80b3f336-2d2b-4dda-aed0-c7905d003aab',
-        desc: '滑雪季'
-      }, {
-        id: '0009',
-        imgUrl: 'https://tianpeng.zbjimg.com/tianpeng/task/%E7%9F%A5%E8%AF%86%E4%BA%A7%E6%9D%83.png/origine/80b3f336-2d2b-4dda-aed0-c7905d003aab',
-        desc: '哈哈哈'
-      }]
+      swiperOption: {
+        autoplay: false
+      }
     }
   },
   computed: {
     pages () {
       const pages = []
-      this.iconList.forEach((item, index) => {
+      this.list.forEach((item, index) => {
         const page = Math.floor(index / 8)
         if (!pages[page]) {
           pages[page] = []
