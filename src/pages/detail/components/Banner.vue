@@ -3,18 +3,18 @@
     <div class="banner" @click="handleBannerClick">
       <img
       class="banner-img"
-      src="http://img1.qunarzz.com/sight/p0/1501/40/40b2b6c951b28fdd.water.jpg_140x140_1c863e5c.jpg"
+      :src="bannerImg"
       alt="">
       <div class="banner-info">
-        <div class="banner-tittle">北京市朝阳区欢乐谷</div>
+        <div class="banner-tittle">{{ this.sightName }}</div>
         <div class="banner-number">
           <span class="iconfont banner-icon">&#xe678;</span>
-          39
+          {{ this.bannerImgs.length }}
         </div>
       </div>
     </div>
     <common-gallary
-      :imgs="imgs"
+      :imgs="bannerImgs"
       v-show="showGallary"
       @close="handleGallaryClick"
     ></common-gallary>
@@ -25,10 +25,14 @@
 import CommonGallary from 'common/gallary/Gallary.vue'
 export default {
   name: 'DetailBanner',
+  props: {
+    sightName: String,
+    bannerImg: String,
+    bannerImgs: Array
+  },
   data () {
     return {
-      showGallary: false,
-      imgs: ['http://img1.qunarzz.com/sight/source/1505/aa/7baaf8a851d221.jpg_r_640x214_1431200f.jpg', 'http://img1.qunarzz.com/sight/source/1505/aa/7baaf8a851d221.jpg_r_640x214_1431200f.jpg']
+      showGallary: false
     }
   },
   methods: {
