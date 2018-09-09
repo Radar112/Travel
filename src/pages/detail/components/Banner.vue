@@ -13,16 +13,19 @@
         </div>
       </div>
     </div>
-    <common-gallary
-      :imgs="bannerImgs"
-      v-show="showGallary"
-      @close="handleGallaryClick"
-    ></common-gallary>
+    <common-fade>
+      <common-gallary
+        :imgs="bannerImgs"
+        v-show="showGallary"
+        @close="handleGallaryClick"
+      ></common-gallary>
+    </common-fade>
   </div>
 </template>
 
 <script>
 import CommonGallary from 'common/gallary/Gallary.vue'
+import CommonFade from 'common/fade/Fade.vue'
 export default {
   name: 'DetailBanner',
   props: {
@@ -44,7 +47,8 @@ export default {
     }
   },
   components: {
-    CommonGallary
+    CommonGallary,
+    CommonFade
   }
 }
 </script>
